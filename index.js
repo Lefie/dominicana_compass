@@ -48,16 +48,17 @@ async function getData() {
     const date = date_obj.getDate()
     const month = date_obj.getMonth() + 1
     const year = date_obj.getFullYear()
-    console.log(year, month, date)
     
     const url = `http://calapi.inadiutorium.cz/api/v0/en/calendars/default/${year}/${month}/${date}`
     try {
-        const response = await fetch(url)
+        const response = await fetch(url, {
+            redirect:"follow"
+        })
         if (!response.ok){
             throw new Error(`Response status: ${response.status}`);
         }
         const json = await response.json();
-       
+        console.log(json)
         // celebration
         const celebrations = []
         if(json && json.celebrations){
@@ -65,12 +66,8 @@ async function getData() {
                 celebrations.push(json.celebrations[i].title)
             }
         }
-        // date
-        const formatted_date = formatDate(year.toString(), month.toString(), date.toString())
-
-        // display 
-        const display_date = document.querySelector("#date")
-        display_date.innerHTML = formatted_date
+       
+        
         const season = document.querySelector("#season")
         console.log(season)
         for(let i = 0; i < celebrations.length; i++){
@@ -84,6 +81,20 @@ async function getData() {
     }
 }
 
+async function addDate() {
+    const date_obj = new Date()
+    const date = date_obj.getDate()
+    const month = date_obj.getMonth() + 1
+    const year = date_obj.getFullYear()
+    console.log(year, month, date)
+
+     // date
+    const formatted_date = formatDate(year.toString(), month.toString(), date.toString())
+    console.log(formatted_date)
+    // display 
+    const display_date = document.querySelector("#date")
+    display_date.innerHTML = formatted_date
+}
+
+addDate()
 getData()
-
-
