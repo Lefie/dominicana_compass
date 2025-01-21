@@ -25,11 +25,30 @@ header h2 {
     font-weight: 600;
     font-size:40px;
     font-style: normal;
+    margin-bottom: 0px;
 }
 
 #dom_symbol {
     width:100px;
     padding-top:5px;
+}
+
+#season{
+    padding:2px;
+    background-color: rgba(131, 130, 130, 0.562);
+    border-radius: 50px;
+    margin:20px;
+}
+
+#season h2 {
+    margin:7px 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#season p {
+    margin:2px;
+    padding:5px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 
