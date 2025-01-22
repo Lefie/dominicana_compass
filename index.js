@@ -99,10 +99,7 @@ function drawBorder(element, color) {
 
 }
 
-/*
-1 - if there are 2 colors, choose that as the border
-2 - 
-*/
+
 function addBorder(litcal, month, day) {
     const content = document.querySelector("#content")
     console.log(content)
@@ -195,7 +192,6 @@ function addBorder(litcal, month, day) {
 }
 
 
-
 async function getData() {
 
     const date_obj = new Date()
@@ -233,8 +229,8 @@ async function getData() {
         const litcal_ny = json2.litcal
         const eventsOfYr = getEvents(litcal, litcal_ny, year)
         console.log(eventsOfYr)
-        const events = queryEvents(eventsOfYr, 6, 7) // get all events of the day
-        addBorder(eventsOfYr, 6, 7) // add border
+        const events = queryEvents(eventsOfYr, month, day) // get all events of the day
+        addBorder(eventsOfYr, month, day) // add border
         addNames(events) // add event
         
     }catch(err){
