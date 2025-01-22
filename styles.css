@@ -34,11 +34,17 @@ header h2 {
 }
 
 #season{
-    padding:2px;
+    color:rgb(245, 245, 245);
+    padding:20px;
     background-color: rgba(131, 130, 130, 0.562);
-    border-radius: 50px;
-    margin:20px;
 }
+
+#season-content {
+    background-color: #1D1616;
+    border-radius: 10px;
+    padding:10px;
+}
+
 
 #season h2 {
     margin:7px 0;
@@ -47,8 +53,39 @@ header h2 {
 
 #season p {
     margin:2px;
-    padding:5px;
     font-family: Arial, Helvetica, sans-serif;
 }
+
+#content {
+    border-radius: 10px;
+    /* border-left:2px solid green ;
+    border-right:2px solid rgb(33, 232, 185) ;
+    border-top:2px solid green ;
+    border-bottom:2px solid rgb(33, 232, 185) ; */
+    /* border: 2px solid #500073; */
+    /* border:1px solid #7A1CAC; */
+    width:80%;
+    max-height:50%;
+    margin:0 auto;
+    padding:15px;
+}
+
+.white_red {
+    border-left:2px solid #FBFBFB ;
+    border-top:2px solid #FBFBFB ;
+    border-right:2px solid #D84040;
+    border-bottom:2px solid #D84040 ; 
+
+}
+
+.pink_purple {
+    border-left:2px solid #FF748B ;
+    border-top:2px solid #FF748B ;
+
+    border-right:2px solid #500073 ;
+    border-bottom:2px solid #500073 ; 
+}
+
+
 
 

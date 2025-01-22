@@ -63,13 +63,124 @@ function addNames(events) {
         names.push(events[i].name)
     }
     
-    const season = document.querySelector("#season")
-    console.log(season)
+    const content = document.querySelector("#content")
+    console.log(content)
     for(let i = 0; i < names.length; i++){
         const p = createEle("p", names[i])
-        season.appendChild(p)
+        content.appendChild(p)
     }
 }
+
+let colors = {
+    "white":"#FBFBFB",
+    "green":"#AEEA94",
+    "red":"#D84040",
+    "purple":"#7A1CAC",
+    "pink":"#FF748B"
+}
+
+let color_combo = {
+    "combo1":"white_red",
+    "combo2":"pink_purple"
+}
+
+/*
+1 - if there are 2 colors, choose that as the border
+2 - 
+*/
+function addBorder(litcal, month, day) {
+    const content = document.querySelector("#content")
+    console.log(content)
+    // remove style if style exists
+    content.style.border=""
+    
+    // remove previously existing classes
+    if(content && content.classList.contains("white_red")){
+        content.classList.remove("white_red")
+    }
+    console.log("hi")
+
+    if(content.classList.contains("pink_purple")){
+        content.classList.remove("pink_purple")
+    }
+    console.log(content)
+
+    let colors_of_day = []
+    let colorComboExists = false
+    let pinkPurple = false
+    let whiteRed = false
+
+    console.log(colorComboExists, pinkPurple, whiteRed, month, day)
+    
+    for ( let i = 0; i < litcal.length; i++) {
+        if(litcal[i].month === month && litcal[i].day === day ) {
+            console.log(litcal[i])
+            colors_of_day.push(litcal[i].color)
+        }
+    }
+    
+
+    for(let i = 0; i < colors_of_day.length; i++){
+        if(colors_of_day[i].length === 2){
+            colorComboExists = true
+        }
+        console.log()
+        if(colors_of_day[i].includes("pink") && colors_of_day[i].includes("purple")){
+            pinkPurple = true
+        }
+
+        if(colors_of_day[i].includes("white") && colors_of_day[i].includes("red")){
+            whiteRed = true
+        }
+    }
+
+    
+    console.log("colors of the day",colors_of_day, colorComboExists)
+    if(colorComboExists){
+        console.log("combo exists")
+        // remove style if style exists
+        content.style.border=""
+        if(pinkPurple && whiteRed || pinkPurple){
+            if(content.classList.contains("white_red")){
+                content.classList.remove("white_red")
+            }
+            content.classList.add("pink_purple")
+        }
+
+        else if(whiteRed){
+            if(content.classList.contains("pink_purple")){
+                content.classList.remove("pink_purple")
+            }
+            content.classList.add("white_red")
+        }
+
+    }else{// TODO : fix color priority
+        console.log("combo does not exist")
+        content.classList.remove("white_red")
+        content.classList.remove("pink_purple")
+        for(let i = 0; i < colors_of_day.length; i++){
+            console.log(colors_of_day[i][0])
+            if(colors_of_day[i][0] === "red"){
+                content.style.border = "2px solid #D84040"
+                
+            }else if(colors_of_day[i][0] === "pink"){
+                content.style.border = "2px solid #FF748B"
+                
+            }else if(colors_of_day[i][0] === "white"){
+                content.style.border = "2px solid #FBFBFB"
+               
+            }else if(colors_of_day[i][0] === "purple"){
+                content.style.border = "2px solid #7A1CAC"
+                
+            } else if(colors_of_day[i][0] === "green") {
+                content.style.border = "2px solid #AEEA94"
+            }
+        }
+    }
+
+    console.log(content)
+}
+
 
 
 async function getData() {
@@ -109,9 +220,9 @@ async function getData() {
         const litcal_ny = json2.litcal
         const eventsOfYr = getEvents(litcal, litcal_ny, year)
         console.log(eventsOfYr)
-        const events = queryEvents(eventsOfYr, month, day)
-        // names of events 
-        addNames(events)
+        const events = queryEvents(eventsOfYr, 3, 24) // get all events of the day
+        addBorder(eventsOfYr, 3, 24) // add border
+        addNames(events) // add event
         
     }catch(err){
         console.error(err.message);
@@ -144,6 +255,7 @@ function queryEvents(litcal, month, day) {
             events.push(litcal[i])
         }
     }
+    console.log("events",events)
  
     return events
 
