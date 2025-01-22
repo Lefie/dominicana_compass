@@ -220,8 +220,8 @@ async function getData() {
         const litcal_ny = json2.litcal
         const eventsOfYr = getEvents(litcal, litcal_ny, year)
         console.log(eventsOfYr)
-        const events = queryEvents(eventsOfYr, 3, 24) // get all events of the day
-        addBorder(eventsOfYr, 3, 24) // add border
+        const events = queryEvents(eventsOfYr, month, day) // get all events of the day
+        addBorder(eventsOfYr, month, day) // add border
         addNames(events) // add event
         
     }catch(err){
