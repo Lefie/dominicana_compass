@@ -1,4 +1,12 @@
 
+let colors = ["red","pink","white","purple","green"]
+
+let color_combo = {
+    "combo1":"white_red",
+    "combo2":"pink_purple"
+}
+
+
 const months = {
     "1": "January",
     "2": "February",
@@ -71,17 +79,24 @@ function addNames(events) {
     }
 }
 
-let colors = {
-    "white":"#FBFBFB",
-    "green":"#AEEA94",
-    "red":"#D84040",
-    "purple":"#7A1CAC",
-    "pink":"#FF748B"
-}
 
-let color_combo = {
-    "combo1":"white_red",
-    "combo2":"pink_purple"
+function drawBorder(element, color) {
+    if(color === "red") {
+        element.style.border = "2px solid #D84040"
+    }
+    if(color === "pink") {
+        element.style.border = "2px solid #FF748B"
+    }
+    if(color === "white") {
+        element.style.border = "2px solid #FBFBFB"
+    }
+    if(color === "purple") {
+        element.style.border = "2px solid #7A1CAC"
+    }
+    if(color === "green") {
+        element.style.border = "2px solid #AEEA94"
+    }
+
 }
 
 /*
@@ -154,27 +169,25 @@ function addBorder(litcal, month, day) {
             content.classList.add("white_red")
         }
 
-    }else{// TODO : fix color priority
+    }else{
         console.log("combo does not exist")
         content.classList.remove("white_red")
         content.classList.remove("pink_purple")
+
+        let single_colors = []
         for(let i = 0; i < colors_of_day.length; i++){
-            console.log(colors_of_day[i][0])
-            if(colors_of_day[i][0] === "red"){
-                content.style.border = "2px solid #D84040"
-                
-            }else if(colors_of_day[i][0] === "pink"){
-                content.style.border = "2px solid #FF748B"
-                
-            }else if(colors_of_day[i][0] === "white"){
-                content.style.border = "2px solid #FBFBFB"
-               
-            }else if(colors_of_day[i][0] === "purple"){
-                content.style.border = "2px solid #7A1CAC"
-                
-            } else if(colors_of_day[i][0] === "green") {
-                content.style.border = "2px solid #AEEA94"
+            single_colors.push(colors_of_day[i][0])
+        }
+
+        console.log("single",single_colors)
+        for(let i = 0; i < colors.length; i++){
+            console.log(single_colors.includes(colors[i]))
+            if(single_colors.includes(colors[i])){
+                console.log("in here", colors[i])
+                drawBorder(content, colors[i])
+                break
             }
+
         }
     }
 
@@ -220,8 +233,8 @@ async function getData() {
         const litcal_ny = json2.litcal
         const eventsOfYr = getEvents(litcal, litcal_ny, year)
         console.log(eventsOfYr)
-        const events = queryEvents(eventsOfYr, month, day) // get all events of the day
-        addBorder(eventsOfYr, month, day) // add border
+        const events = queryEvents(eventsOfYr, 6, 7) // get all events of the day
+        addBorder(eventsOfYr, 6, 7) // add border
         addNames(events) // add event
         
     }catch(err){
