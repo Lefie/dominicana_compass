@@ -1,8 +1,8 @@
 body {
     margin:30px auto;
     max-width: 400px;
-    height: 600px;
-    border:3px solid rgb(0, 0, 0);
+    height: 100%;
+    border: 1px solid black;
     color:rgb(0, 0, 0);
     text-align: center;
 }
@@ -15,6 +15,7 @@ body {
 
 header {
     background-color: black;
+    
 }
 
 header h2 {
@@ -23,19 +24,19 @@ header h2 {
     padding-bottom: 8px;
     font-family: "Italianno", serif;
     font-weight: 600;
-    font-size:40px;
+    font-size:30px;
     font-style: normal;
     margin-bottom: 0px;
 }
 
 #dom_symbol {
-    width:100px;
+    width:60px;
     padding-top:5px;
 }
 
 #season{
     color:rgb(245, 245, 245);
-    padding:20px;
+    padding:10px;
     background-color: rgba(131, 130, 130, 0.562);
 }
 
@@ -43,27 +44,22 @@ header h2 {
     background-color: #1D1616;
     border-radius: 10px;
     padding:10px;
+    
 }
 
-
 #season h2 {
-    margin:7px 0;
+    margin:0;
     font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 5px;
 }
 
 #season p {
-    margin:2px;
+    margin:0px;
     font-family: Arial, Helvetica, sans-serif;
 }
 
 #content {
     border-radius: 10px;
-    /* border-left:2px solid green ;
-    border-right:2px solid rgb(33, 232, 185) ;
-    border-top:2px solid green ;
-    border-bottom:2px solid rgb(33, 232, 185) ; */
-    /* border: 2px solid #500073; */
-    /* border:1px solid #7A1CAC; */
     width:80%;
     max-height:50%;
     margin:0 auto;
@@ -81,10 +77,57 @@ header h2 {
 .pink_purple {
     border-left:2px solid #FF748B ;
     border-top:2px solid #FF748B ;
-
     border-right:2px solid #500073 ;
     border-bottom:2px solid #500073 ; 
 }
+
+#dom_section {
+    margin:0px;
+    padding:10px;
+    color:rgb(0, 0, 0);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight:900;
+    font-size:large;
+    color:white;
+}
+
+#dom_section p {
+    background-color: rgba(35, 35, 35, 0.781);
+    width: 100%;
+    padding:2px 0px;
+}
+
+.dom-label {
+    border: 1px solid whitesmoke;
+    padding:10px 0px;
+}
+
+
+
+#first-label {
+    background-image: url("/img/saints.png");
+    background-size:100% 130px;
+    background-repeat: no-repeat;
+}
+
+#second-label {
+    background-image: url("/img/community.png");
+    background-size:100% 100px;
+    background-repeat: no-repeat;
+}
+
+#third-label {
+    background-image: url("/img/resources.png");
+    background-size:100% 150px;
+    background-repeat: no-repeat;
+}
+
+footer{
+    color:white;
+    background-color: #1D1616;
+    padding:5px;
+}
+
 
 
 
