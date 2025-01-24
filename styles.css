@@ -146,7 +146,7 @@ i {
     padding:5px 4px;
 }
 
-i:hover {
+i:hover, i:active {
     color:rgb(199, 199, 199);
     cursor:pointer;
     transition:0.5s;
