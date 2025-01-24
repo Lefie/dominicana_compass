@@ -92,17 +92,21 @@ header h2 {
 }
 
 #dom_section p {
-    background-color: rgba(35, 35, 35, 0.781);
+    background-color: rgba(35, 35, 35, 0.681);
     width: 100%;
     padding:2px 0px;
+}
+
+#dom_section p:hover {
+    background-color: rgba(35, 35, 35,0.95);
+    transition: 0.4s;
+    cursor: pointer;
 }
 
 .dom-label {
     border: 1px solid whitesmoke;
     padding:10px 0px;
 }
-
-
 
 #first-label {
     background-image: url("/img/saints.png");
@@ -125,7 +129,25 @@ header h2 {
 footer{
     color:white;
     background-color: #1D1616;
-    padding:5px;
+    padding:10px;
+}
+
+footer div {
+    padding:5px 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+i {
+    font-size: 20px;
+}
+
+i:hover {
+    color:rgb(199, 199, 199);
+    cursor:pointer;
+    transition:0.5s;
+    
 }
 
 
