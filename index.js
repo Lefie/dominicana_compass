@@ -6,7 +6,6 @@ let color_combo = {
     "combo2":"pink_purple"
 }
 
-
 const months = {
     "1": "January",
     "2": "February",
